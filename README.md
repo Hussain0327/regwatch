@@ -188,7 +188,7 @@ cp .env.example .env && $EDITOR .env
 # initialize the DB and data directories
 uv run regwatch init-db
 
-# discover Amneal sponsor-name aliases from Drugs@FDA (no hand-coding)
+# discover the company's sponsor-name aliases from Drugs@FDA (no hand-coding)
 uv run regwatch aliases --refresh
 
 # seed the verified starter PSGs by application number
@@ -361,7 +361,7 @@ The watchlist is built from three allowed identity inputs, in order. INV-5
 rejects anything else, including model memory:
 
 1. `drugsfda`: the official Drugs@FDA data-file snapshot, filtered to
-   applications whose sponsor matches a discovered Amneal variant. Aliases
+   applications whose sponsor matches a discovered `COMPANY_NAME` variant. Aliases
    come from `uv run regwatch aliases`, not hand-coding.
 2. `anda_letter`: user-uploaded approval letters.
 3. `manual`: explicit overrides.

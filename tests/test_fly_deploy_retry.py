@@ -120,9 +120,9 @@ def test_succeeds_first_attempt_without_retry(tmp_path: Path) -> None:
 @pytest.mark.parametrize(
     "image_args",
     [
-        ("--image", "registry.fly.io/amneal:sha-abc123"),
-        ("--image=registry.fly.io/amneal:sha-abc123",),
-        ("-i", "registry.fly.io/amneal:sha-abc123"),
+        ("--image", "registry.fly.io/regwatch:sha-abc123"),
+        ("--image=registry.fly.io/regwatch:sha-abc123",),
+        ("-i", "registry.fly.io/regwatch:sha-abc123"),
     ],
     ids=["long", "long-equals", "short"],
 )
@@ -177,13 +177,13 @@ def test_retries_transient_marker_buried_in_large_multiline_output(tmp_path: Pat
     filler = "x" * 70_000  # > the 64KB pipe buffer
     multiline = (
         "==> Building image\n"
-        "image: registry.fly.io/amneal:deployment-01\n"
-        "Running amneal release_command: regwatch release\n"
+        "image: registry.fly.io/regwatch:deployment-01\n"
+        "Running regwatch release_command: regwatch release\n"
         "error starting release_command machine: failed to start VM d895132ae09628: "
         "deadline_exceeded: machine still starting\n"
         f"{filler}\n"
         "Error: release command failed - aborting deployment.\n"
-        "Check the logs at: https://fly.io/apps/amneal/monitoring"
+        "Check the logs at: https://fly.io/apps/regwatch/monitoring"
     )
     proc, invocations = _run(tmp_path, fail_times=1, fail_message=multiline)
     assert proc.returncode == 0, proc.stderr
@@ -218,7 +218,7 @@ def test_retries_transient_marker_buried_in_large_multiline_output(tmp_path: Pat
         # a check body on ONE line. Only the `[^ ]*: *` adjacency rejects this;
         # with `.*` the host would license the unrelated body as transient.
         (
-            'Error: Post "https://api.machines.dev/v1/apps/amneal/machines/x/wait": '
+            'Error: Post "https://api.machines.dev/v1/apps/regwatch/machines/x/wait": '
             "check failed: 502 Bad Gateway / upstream unavailable"
         ),
     ],

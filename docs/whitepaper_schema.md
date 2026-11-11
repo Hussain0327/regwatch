@@ -65,7 +65,7 @@ now remain analyst input; they cannot render a corpus-backed "No".
 | Dosage Form | Orange Book | `dosage_form_route`, split on `;` | appl_no/product_no | auto |
 | Route | Orange Book | `dosage_form_route`, split on `;` | appl_no/product_no | auto |
 | Strengths | Orange Book | `strength` across the application's products | appl_no | auto |
-| R&D Center | none, internal Amneal data | - | - | manual |
+| R&D Center | none, internal company data | - | - | manual |
 | Priority Status | derived | OB patent + exclusivity rows | appl_no/product_no | manual |
 | Patents: No Relevant / PI / PII / PIII / PIV / Section viii | Orange Book `patent.txt` | `patent_no`, `patent_use_code`, drug-substance/product flags | appl_no/product_no | manual, surface the rows; the paragraph classification is judgment |
 | If PI, eligible for First-to-Market? Y/N | derived | OB exclusivity + Paragraph IV list | appl_no | manual |

@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Hussain0327/amneal/go/internal/proxy"
+	"github.com/Hussain0327/regwatch/go/internal/proxy"
 )
 
 // waitFor bounds every blocking read so a buffering regression fails the test
@@ -514,14 +514,14 @@ func TestConfigFromEnv(t *testing.T) {
 		t.Errorf("default addr = %q, want %q", cfg.Addr, ":8080")
 	}
 
-	t.Setenv("UPSTREAM_URL", "http://app.process.amneal.internal:8000")
+	t.Setenv("UPSTREAM_URL", "http://app.process.regwatch.internal:8000")
 	t.Setenv("PORT", "3000")
 	cfg, err = proxy.ConfigFromEnv()
 	if err != nil {
 		t.Fatalf("overrides: %v", err)
 	}
-	if cfg.Upstream.Host != "app.process.amneal.internal:8000" {
-		t.Errorf("upstream host = %q, want %q", cfg.Upstream.Host, "app.process.amneal.internal:8000")
+	if cfg.Upstream.Host != "app.process.regwatch.internal:8000" {
+		t.Errorf("upstream host = %q, want %q", cfg.Upstream.Host, "app.process.regwatch.internal:8000")
 	}
 	if cfg.Addr != ":3000" {
 		t.Errorf("addr = %q, want %q", cfg.Addr, ":3000")

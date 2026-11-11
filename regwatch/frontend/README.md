@@ -1,6 +1,6 @@
 # REGWATCH Frontend Workspace
 
-Next.js (App Router, TypeScript) UI for RegWatch on the Amneal brand. Five
+Next.js (App Router, TypeScript) UI for RegWatch. Five
 surfaces (Ask / Assemble / Watch / White Paper / Deficiency) render inside one
 shared App Router shell: one sidebar, one set of design tokens, one URL-scoped
 current product. The **Compliance Studio** (`/studio`) sits outside that shell

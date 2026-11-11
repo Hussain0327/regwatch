@@ -32,8 +32,8 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/Hussain0327/amneal/go/internal/proxy"
-	"github.com/Hussain0327/amneal/go/internal/store"
+	"github.com/Hussain0327/regwatch/go/internal/proxy"
+	"github.com/Hussain0327/regwatch/go/internal/store"
 )
 
 const (
@@ -823,7 +823,7 @@ func TestAuthWallAndRelayPrecedence(t *testing.T) {
 }
 
 func TestCORSParity(t *testing.T) {
-	h := newHarness(t, Config{SessionTTL: 72 * time.Hour, CORSOrigins: []string{"https://amneal.vercel.app"}})
+	h := newHarness(t, Config{SessionTTL: 72 * time.Hour, CORSOrigins: []string{"https://regwatch.example"}})
 	h.seedUser(t, testEmail, testPassword, true)
 
 	// Simple response: allowlisted Origin is echoed with credentials.
@@ -833,13 +833,13 @@ func TestCORSParity(t *testing.T) {
 		t.Fatalf("new request: %v", err)
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Origin", "https://amneal.vercel.app")
+	req.Header.Set("Origin", "https://regwatch.example")
 	resp, err := h.client.Do(req)
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer func() { _ = resp.Body.Close() }()
-	if resp.Header.Get("Access-Control-Allow-Origin") != "https://amneal.vercel.app" ||
+	if resp.Header.Get("Access-Control-Allow-Origin") != "https://regwatch.example" ||
 		resp.Header.Get("Access-Control-Allow-Credentials") != "true" {
 		t.Fatalf("CORS headers missing: %v", resp.Header)
 	}
@@ -864,7 +864,7 @@ func TestCORSParity(t *testing.T) {
 	if err != nil {
 		t.Fatalf("new request: %v", err)
 	}
-	req3.Header.Set("Origin", "https://amneal.vercel.app")
+	req3.Header.Set("Origin", "https://regwatch.example")
 	req3.Header.Set("Access-Control-Request-Method", "POST")
 	req3.Header.Set("Access-Control-Request-Headers", "content-type")
 	resp3, err := h.client.Do(req3)

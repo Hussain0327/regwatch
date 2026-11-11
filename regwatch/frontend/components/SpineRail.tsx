@@ -117,7 +117,7 @@ export function SpineRail() {
         <Link
           href={withScope("/", productParams)}
           className="rail__seal"
-          aria-label="Amneal RegWatch — home"
+          aria-label="RegWatch home"
           onClick={() => setActiveSessionId(null)}
         >
           <span className="seal rail__seal-mark" aria-hidden />

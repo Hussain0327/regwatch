@@ -17,7 +17,7 @@ import (
 // Env names, defaults, and parsing mirror config/settings.py exactly so one
 // ops override reaches both runtimes. On prod proxy machines today (fly.toml
 // [env] is app-wide): AUTH_COOKIE_SECURE="true", TRUST_PROXY_HEADERS="true",
-// CORS_ALLOW_ORIGINS_CSV="https://amneal.vercel.app",
+// CORS_ALLOW_ORIGINS_CSV=<the Vercel frontend origin>,
 // SENTRY_ENVIRONMENT="production"; AUTH_SESSION_TTL_HOURS is UNSET, so the
 // code default below is what preserves the 72h wire contract (cookie Max-Age
 // mirrors the server-side TTL).
@@ -152,7 +152,7 @@ func ConfigFromEnv() (Config, error) {
 		LLMProvider:           envOrDefault("LLM_PROVIDER", ""),
 		LLMModel:              envOrDefault("OPENAI_LLM_MODEL", "gpt-5.6-terra"),
 		RefusalScoreThreshold: 0.30,
-		CompanyName:           envOrDefault("COMPANY_NAME", "Amneal"),
+		CompanyName:           envOrDefault("COMPANY_NAME", ""),
 	}
 	if v := strings.TrimSpace(os.Getenv("RETRIEVAL_TOP_K")); v != "" {
 		n, err := strconv.Atoi(v)

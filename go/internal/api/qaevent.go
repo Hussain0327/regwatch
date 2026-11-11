@@ -3,7 +3,7 @@ package api
 import (
 	"strings"
 
-	"github.com/Hussain0327/amneal/go/internal/obs"
+	"github.com/Hussain0327/regwatch/go/internal/obs"
 )
 
 // Query-path event logging. Every /query log line goes through here so it

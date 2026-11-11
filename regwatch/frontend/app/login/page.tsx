@@ -132,9 +132,8 @@ function SignInForm() {
         <header className="signin__masthead rise d1">
           <span className="signin__nameplate">
             <span className="wordmark" style={{ fontSize: "2.1rem" }}>
-              Amneal
+              RegWatch
             </span>
-            <span className="signin__series">Regwatch</span>
           </span>
           <span className="signin__standing">FDA guidance intelligence</span>
         </header>
@@ -163,7 +162,7 @@ function SignInForm() {
                   className="field"
                   autoComplete="email"
                   autoFocus
-                  placeholder="you@amneal.com"
+                  placeholder="you@example.com"
                   aria-invalid={fieldErrors.email !== null}
                   aria-describedby={fieldErrors.email ? "email-error" : undefined}
                   value={email}

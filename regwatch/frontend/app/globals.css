@@ -943,7 +943,7 @@ button.chip.composer__restore:hover:not(:disabled) {
   font-variant-ligatures: none;
 }
 
-/* The Amneal brush wordmark — gold gradient ink */
+/* The RegWatch brush wordmark: gold gradient ink */
 .wordmark {
   font-family: var(--font-script), cursive;
   background: linear-gradient(96deg, var(--gold) 0%, var(--gold-deep) 92%);
@@ -953,8 +953,8 @@ button.chip.composer__restore:hover:not(:disabled) {
   color: var(--gold);
   line-height: 0.9;
   /* The script's ascenders overrun a 0.9 line box, and background-clip: text
-     paints no gradient outside the background box -- the looped "l" of Amneal
-     rendered with its top sliced flat. Pad the paint area out, then pull the
+     paints no gradient outside the background box -- the mark's tall strokes
+     rendered with their tops sliced flat. Pad the paint area out, then pull the
      same amount back in margin so the mark still occupies its original space.
      Vertical only: horizontal padding is not needed (the swashes measure clear)
      and would eat the flex gap between the seal and the mark in <Wordmark>. */
@@ -2894,14 +2894,6 @@ button.chip:disabled {
   display: flex;
   align-items: baseline;
   gap: 0.8rem;
-}
-.signin__series {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--ink);
 }
 .signin__standing {
   font-family: var(--font-mono), ui-monospace, monospace;

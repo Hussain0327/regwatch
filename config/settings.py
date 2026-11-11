@@ -488,8 +488,9 @@ class Settings(BaseSettings):
         return dsn or None
 
     # ---------- Company ----------
-    company_name: str = "Amneal"
-    company_applicant_aliases: str = "AMNEAL PHARMS,AMNEAL PHARMACEUTICALS,AMNEAL PHARMS LLC"
+    # The sponsor whose applications the watchlist tracks. Empty = none configured.
+    company_name: str = ""
+    company_applicant_aliases: str = ""
 
     @property
     def applicant_aliases(self) -> list[str]:

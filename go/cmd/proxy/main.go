@@ -12,10 +12,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/Hussain0327/amneal/go/internal/api"
-	"github.com/Hussain0327/amneal/go/internal/obs"
-	"github.com/Hussain0327/amneal/go/internal/proxy"
-	"github.com/Hussain0327/amneal/go/internal/store"
+	"github.com/Hussain0327/regwatch/go/internal/api"
+	"github.com/Hussain0327/regwatch/go/internal/obs"
+	"github.com/Hussain0327/regwatch/go/internal/proxy"
+	"github.com/Hussain0327/regwatch/go/internal/store"
 )
 
 // sentryFlushTimeout bounds the post-drain flush. The budget: Fly's

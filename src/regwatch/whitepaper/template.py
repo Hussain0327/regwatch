@@ -113,7 +113,7 @@ CELL_SPECS: tuple[CellSpec, ...] = (
         "rd_center",
         SECTION_1,
         "R&D Center",
-        "none — internal Amneal data",
+        "none — internal company data",
         "—",
         CellMode.MANUAL,
         "manual_no_source",

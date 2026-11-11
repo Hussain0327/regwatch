@@ -363,7 +363,7 @@ class TestElChecklists:
                     "blocks": [
                         {
                             "text": (
-                                "Amneal commits to continue leachable monitoring through the "
+                                "The applicant commits to continue leachable monitoring through the "
                                 "proposed shelf life."
                             )
                         }

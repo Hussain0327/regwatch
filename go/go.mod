@@ -1,4 +1,4 @@
-module github.com/Hussain0327/amneal/go
+module github.com/Hussain0327/regwatch/go
 
 go 1.26.6
 

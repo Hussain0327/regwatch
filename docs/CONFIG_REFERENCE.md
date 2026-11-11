@@ -562,8 +562,8 @@ deliberate documented exception to "the Fly image never parses a PDF".
 
 | Name | Code default | Consumer | Notes |
 | --- | --- | --- | --- |
-| `COMPANY_NAME` | `Amneal` | Python, Go | Reported on `GET /settings` |
-| `COMPANY_APPLICANT_ALIASES` | `AMNEAL PHARMS,AMNEAL PHARMACEUTICALS,AMNEAL PHARMS LLC` | Python | Comma-separated, upper-cased on read. Used for Drugs@FDA sponsor matching |
+| `COMPANY_NAME` | empty | Python, Go | The sponsor whose applications the watchlist tracks. Reported on `GET /settings` |
+| `COMPANY_APPLICANT_ALIASES` | empty | Python | Comma-separated, upper-cased on read. Used for Drugs@FDA sponsor matching |
 
 ## 10. Variables that are not `Settings` fields
 

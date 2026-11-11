@@ -406,7 +406,7 @@ the `proxy` machines run only the Go binary and have no Python CLI, and a bare
 `fly ssh console` may land on one.
 
 ```bash
-fly ssh console -s -C "regwatch create-user analyst@amneal.com --name 'CRA Analyst'"
+fly ssh console -s -C "regwatch create-user analyst@example.com --name 'CRA Analyst'"
 # at the -s picker, choose a machine from the "app" process group
 ```
 
@@ -783,7 +783,7 @@ There is no gate and no auto-tune: over-tuning this cutoff trades directly
 against INV safety, so it is an explicit operator decision.
 
 The last real sweep artifact is from 2026-07-30, watch run
-[30531864530](https://github.com/Hussain0327/amneal/actions/runs/30531864530), in
+[30531864530](https://github.com/Hussain0327/regwatch/actions/runs/30531864530), in
 the OpenAI 1536 space. Its six must-answer rows scored 0.812 to 0.896, but all
 five must-refuse rows stopped before retrieval and had no cosine score, so it
 produced no usable recommendation. Details in [`EVAL_STATUS.md`](EVAL_STATUS.md).

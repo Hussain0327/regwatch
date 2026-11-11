@@ -199,7 +199,7 @@ func TestConfigFromEnvPublicSettings(t *testing.T) {
 	// unset state is the EMPTY STRING here, never a guessed provider.
 	if cfg.EmbeddingProvider != "" || cfg.LLMProvider != "" ||
 		cfg.LLMModel != "gpt-5.6-terra" || cfg.RetrievalTopK != nil ||
-		cfg.RefusalScoreThreshold != 0.30 || cfg.CompanyName != "Amneal" {
+		cfg.RefusalScoreThreshold != 0.30 || cfg.CompanyName != "" {
 		t.Fatalf("settings defaults: %+v", cfg)
 	}
 

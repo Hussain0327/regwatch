@@ -21,7 +21,7 @@
 // there is no drafts/document service to find.
 //
 // Content is representative CMC material for a generic ER tablet. It is sample
-// data, not an Amneal submission.
+// data, not a real submission.
 //
 // Only three of the eleven findings carry a `suggestion`, and that ratio is the
 // point rather than an omission. A suggestion is offered when the remedy is

@@ -1,14 +1,14 @@
 """Derive applicant-name aliases from Drugs@FDA (no guessing).
 
 Real records carry sponsor-name variants like:
-  "Amneal Pharmaceuticals LLC"
-  "Amneal Pharmaceuticals of NY"
-  "Amneal EU Limited"
-  "Amneal Pharms Co India Pvt Ltd"
-  "Amneal Pharms LLC"
+  "Acme Pharmaceuticals LLC"
+  "Acme Pharmaceuticals of NY"
+  "Acme EU Limited"
+  "Acme Pharms Co India Pvt Ltd"
+  "Acme Pharms LLC"
 
 These can't be enumerated by hand. We scan the official Drugs@FDA weekday data
-snapshot for the company's root token (e.g. "Amneal") and collect all distinct
+snapshot for the company's root token (e.g. "Acme") and collect all distinct
 ``SponsorName`` values that contain it. The result is cached as JSON so
 subsequent watchlist builds reuse it.
 """
@@ -97,4 +97,6 @@ def get_aliases() -> list[str]:
     env_aliases = s.applicant_aliases
     if env_aliases:
         return env_aliases
-    return [s.company_name.upper()]
+    # No company configured: an empty alias would look like a real one.
+    name = s.company_name.strip().upper()
+    return [name] if name else []

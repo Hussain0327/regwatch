@@ -19,7 +19,7 @@ import "./research.css";
 // Auth is still enforced upstream by <AuthProvider> in the root layout.
 
 export const metadata: Metadata = {
-  title: "Research Studio | Amneal REGWATCH",
+  title: "Research Studio | RegWatch",
   description:
     "Research public FDA guidance and turn it into threads, dossiers, bulletins and papers.",
 };
