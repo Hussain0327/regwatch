@@ -8,7 +8,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/Hussain0327/amneal/go/internal/store"
+	"github.com/Hussain0327/regwatch/go/internal/store"
 )
 
 // Chat-session wire types. Key sets are contract-frozen by the pytest suite

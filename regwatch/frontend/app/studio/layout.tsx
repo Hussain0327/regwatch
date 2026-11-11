@@ -11,7 +11,7 @@ import "./studio.css";
 // in the root layout.
 
 export const metadata: Metadata = {
-  title: "Compliance Studio | Amneal REGWATCH",
+  title: "Compliance Studio | RegWatch",
   description: "Review and check CMC documents against ICH, USP, 21 CFR and internal SOPs.",
 };
 

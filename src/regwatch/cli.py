@@ -62,7 +62,7 @@ def _opt_value(value: _T, default: _T) -> _T:
 # accept BOTH address families on one port:
 #   * IPv4, because flyd's health checks dial IPv4 and Fly Proxy's backhaul
 #     reaches each VM over a private IPv4 address.
-#   * IPv6, because the phase-3 Go proxy dials app.process.amneal.internal, a
+#   * IPv6, because the phase-3 Go proxy dials app.process.<app>.internal, a
 #     6PN name that resolves AAAA-only.
 # One host per family, NOT a single "::" socket: asyncio and uvloop create one
 # socket per host and force IPV6_V6ONLY=1 on the AF_INET6 one (CPython

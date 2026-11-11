@@ -17,7 +17,7 @@ const API_PROXY_TARGET = process.env.API_PROXY_TARGET ?? "http://127.0.0.1:8000"
 // configured deploy (the var set to the https API origin) is unaffected.
 if (process.env.VERCEL === "1" && API_PROXY_TARGET === "http://127.0.0.1:8000") {
   throw new Error(
-    "API_PROXY_TARGET must be set to the https API origin on Vercel (e.g. https://amneal.fly.dev); " +
+    "API_PROXY_TARGET must be set to the https API origin on Vercel (e.g. https://<app>.fly.dev); " +
       "it is unset, so /api/* would proxy to the function loopback and 502. " +
       "Set it via `vercel env add API_PROXY_TARGET production` (see docs/DEPLOY.md §4.3).",
   );

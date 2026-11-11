@@ -326,3 +326,14 @@ def test_status_from_marketing_status_is_deterministic() -> None:
     assert _status_from_marketing_status({"marketing_status": None}) is None
     assert _status_from_marketing_status({"marketing_status": ""}) is None
     assert _status_from_marketing_status({"marketing_status": "Whatever"}) is None
+
+
+def test_get_aliases_empty_when_no_company_configured(tmp_path, monkeypatch):
+    """An unset COMPANY_NAME yields no aliases, not one empty alias."""
+    from types import SimpleNamespace
+
+    from regwatch.watch import aliases
+
+    unset = SimpleNamespace(processed_dir=tmp_path, applicant_aliases=[], company_name="")
+    monkeypatch.setattr(aliases, "get_settings", lambda: unset)
+    assert aliases.get_aliases() == []

@@ -84,7 +84,7 @@ describe("sign-in form validation", () => {
   it("names the missing password and moves the caret to it", async () => {
     const user = await renderSignedOut();
 
-    await submitWith(user, "analyst@amneal.com", "");
+    await submitWith(user, "analyst@example.com", "");
 
     expect(screen.getByText("Enter your password.")).toBeInTheDocument();
     expect(screen.getByLabelText("Password")).toHaveFocus();
@@ -108,7 +108,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new ApiError(401, "invalid email or password"));
 
-    await submitWith(user, "analyst@amneal.com", "wrong");
+    await submitWith(user, "analyst@example.com", "wrong");
 
     expect(await screen.findByText("Invalid email or password.")).toBeInTheDocument();
   });
@@ -117,7 +117,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new ApiError(429, "rate limit exceeded"));
 
-    await submitWith(user, "analyst@amneal.com", "hunter2hunter2");
+    await submitWith(user, "analyst@example.com", "hunter2hunter2");
 
     expect(await screen.findByText("Too many attempts. Wait a minute, then try again.")).toBeInTheDocument();
   });
@@ -126,7 +126,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new ApiError(504, "The request timed out"));
 
-    await submitWith(user, "analyst@amneal.com", "hunter2hunter2");
+    await submitWith(user, "analyst@example.com", "hunter2hunter2");
 
     expect(
       await screen.findByText("Can't reach RegWatch right now. Try again in a moment."),
@@ -137,7 +137,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new ApiError(500, "Internal Server Error"));
 
-    await submitWith(user, "analyst@amneal.com", "hunter2hunter2");
+    await submitWith(user, "analyst@example.com", "hunter2hunter2");
 
     expect(await screen.findByText(GENERIC_FAILURE)).toBeInTheDocument();
     expect(screen.queryByText(/Internal Server Error/)).not.toBeInTheDocument();
@@ -147,7 +147,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new TypeError("Failed to fetch"));
 
-    await submitWith(user, "analyst@amneal.com", "hunter2hunter2");
+    await submitWith(user, "analyst@example.com", "hunter2hunter2");
 
     expect(await screen.findByText(GENERIC_FAILURE)).toBeInTheDocument();
     expect(screen.queryByText(/Failed to fetch/)).not.toBeInTheDocument();
@@ -157,7 +157,7 @@ describe("sign-in failure copy", () => {
     const user = await renderSignedOut();
     loginMock.mockRejectedValueOnce(new ApiError(401, "invalid email or password"));
 
-    await submitWith(user, "analyst@amneal.com", "wrong");
+    await submitWith(user, "analyst@example.com", "wrong");
 
     await waitFor(() => expect(screen.getByRole("button", { name: "Sign in" })).toBeEnabled());
   });
@@ -169,9 +169,9 @@ describe("sign-in success", () => {
     loginMock.mockResolvedValueOnce(USER);
     meMock.mockResolvedValueOnce(USER);
 
-    await submitWith(user, "  analyst@amneal.com  ", "hunter2hunter2");
+    await submitWith(user, "  analyst@example.com  ", "hunter2hunter2");
 
-    await waitFor(() => expect(loginMock).toHaveBeenCalledWith("analyst@amneal.com", "hunter2hunter2"));
+    await waitFor(() => expect(loginMock).toHaveBeenCalledWith("analyst@example.com", "hunter2hunter2"));
     await waitFor(() => expect(routerReplace).toHaveBeenCalledWith("/"));
   });
 });

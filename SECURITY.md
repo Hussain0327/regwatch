@@ -73,10 +73,8 @@ created later.
 
 ## Reporting a Vulnerability
 
-Report suspected vulnerabilities through the approved Amneal internal security
-or IT intake process. If no formal intake is available for this pilot, contact
-the repository owner or project maintainer directly through an internal private
-channel.
+Report suspected vulnerabilities to the repository owner or project maintainer
+directly through a private channel.
 
 Do not disclose vulnerabilities in public issues, public chat, screenshots, or
 external ticket systems. Do not include real secrets, API keys, PHI, proprietary

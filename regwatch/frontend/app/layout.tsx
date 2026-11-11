@@ -72,7 +72,7 @@ const sourceSerif = localFont({
   variable: "--font-serif",
   display: "swap",
 });
-// The Amneal brush wordmark, kept as the brand mark.
+// The brush script behind the RegWatch wordmark.
 const yellowtail = localFont({
   src: "./fonts/yellowtail/yellowtail-latin-400-normal.woff2",
   variable: "--font-script",
@@ -82,7 +82,7 @@ const yellowtail = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Amneal REGWATCH",
+  title: "RegWatch",
   description: "FDA guidance intelligence. Public data only; every claim is cited.",
 };
 

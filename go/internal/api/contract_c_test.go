@@ -246,7 +246,7 @@ func TestSettingsExactWireBody(t *testing.T) {
 		// Explicit nil keeps the null-top_k wire-pin intent visible.
 		RetrievalTopK:         nil,
 		RefusalScoreThreshold: 0.30,
-		CompanyName:           "Amneal",
+		CompanyName:           "Test Co",
 	})
 	h.seedUser(t, testEmail, testPassword, true)
 	cookie := h.login(t, testEmail, testPassword)
@@ -260,7 +260,7 @@ func TestSettingsExactWireBody(t *testing.T) {
 	// retrieval_top_k, 0.3 float rendering. FastAPI emits the same JSON minus
 	// Go's trailing encoder newline.
 	want := `{"embedding_provider":"openai","llm_provider":"openai","llm_model":"gpt-5.4-nano",` +
-		`"retrieval_top_k":null,"refusal_score_threshold":0.3,"company_name":"Amneal"}` + "\n"
+		`"retrieval_top_k":null,"refusal_score_threshold":0.3,"company_name":"Test Co"}` + "\n"
 	if string(raw) != want {
 		t.Fatalf("settings body = %s, want %s", raw, want)
 	}

@@ -187,7 +187,7 @@ def test_list_runs_is_org_shared_and_newest_updated_first() -> None:
     # No user filter: both analysts' runs are visible, with author attribution.
     assert {s.created_by for s in summaries} == {"Test Analyst", "Other Analyst"}
     # Newest updated_at first: touching run_a's overlay moves it to the top.
-    wr.upsert_input(run_id=run_a, cell_id=ANALYST_CELL, value="Amneal NY", user_id=uid_b)
+    wr.upsert_input(run_id=run_a, cell_id=ANALYST_CELL, value="Site NY", user_id=uid_b)
     summaries, _ = wr.list_runs(limit=10, offset=0)
     assert [s.id for s in summaries] == [run_a, run_b]
     assert summaries[0].inputs_count == 1
@@ -256,18 +256,18 @@ def test_upsert_input_round_trip_updates_in_place() -> None:
     other = create_user("other@example.com", display_name="Other Analyst")
     run_id = _create(uid)
 
-    view = wr.upsert_input(run_id=run_id, cell_id=ANALYST_CELL, value="Amneal NY", user_id=uid)
+    view = wr.upsert_input(run_id=run_id, cell_id=ANALYST_CELL, value="Site NY", user_id=uid)
     assert view is not None
-    assert (view.cell_id, view.value, view.author) == (ANALYST_CELL, "Amneal NY", "Test Analyst")
+    assert (view.cell_id, view.value, view.author) == (ANALYST_CELL, "Site NY", "Test Analyst")
 
     # Second upsert REPLACES: one row per (run, cell), author + time travel.
-    view2 = wr.upsert_input(run_id=run_id, cell_id=ANALYST_CELL, value="Amneal NJ", user_id=other)
-    assert view2 is not None and view2.value == "Amneal NJ" and view2.author == "Other Analyst"
+    view2 = wr.upsert_input(run_id=run_id, cell_id=ANALYST_CELL, value="Site NJ", user_id=other)
+    assert view2 is not None and view2.value == "Site NJ" and view2.author == "Other Analyst"
 
     detail = wr.get_run(run_id)
     assert detail is not None
     assert len(detail.inputs) == 1
-    assert detail.inputs[0].value == "Amneal NJ"
+    assert detail.inputs[0].value == "Site NJ"
     assert detail.inputs[0].author_user_id == other
 
 

@@ -1,6 +1,6 @@
 # REGWATCH - System design and architecture
 
-> An FDA regulatory-intelligence system for Amneal's generic-drug Clinical
+> An FDA regulatory-intelligence system for a generic-drug Clinical
 > Regulatory Affairs (CRA) team. It surfaces, organizes, compares and cites
 > public FDA data. By design it never authors submission content and never
 > renders regulatory judgment.
@@ -965,7 +965,7 @@ Output is markdown plus structured sections plus a refusal flag.
 - `change_detector` compares `content_hash` to spot revised PSGs and writes new
   `PsgVersion` rows with a cited `diff_summary`.
 - `matcher`, `aliases` and `watchlist` map FDA records to the company watchlist
-  (Amneal applicant aliases).
+  (the configured company's applicant aliases).
 - `alerts` produces the digest records surfaced by `GET /watch/latest` and the
   Watch UI. The run history doubles as INV-4 evidence: nothing was fabricated,
   here is the run log.
